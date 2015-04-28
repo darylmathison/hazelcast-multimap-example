@@ -18,6 +18,7 @@ import java.util.concurrent.Future;
 public class IdMultiMapAccessThreadIT {
 
     public static final String MAP_NAME = "idAccessMap";
+    public static final String GEN_NAME = "singleAccess";
     public static final int NUM_THREADS = 10;
 
     @ClassRule
@@ -42,7 +43,7 @@ public class IdMultiMapAccessThreadIT {
     }
 
     private List<IdMultiMapAccessThread> generateThreads(HazelcastInstance instance) {
-        IdGenerator gen = instance.getIdGenerator("singleAccess");
+        IdGenerator gen = instance.getIdGenerator(GEN_NAME);
         List<IdMultiMapAccessThread> threads = new ArrayList<>(NUM_THREADS);
         for(int i = 0; i < NUM_THREADS; i++) {
             IdMultiMapAccessThread thread = new IdMultiMapAccessThread();

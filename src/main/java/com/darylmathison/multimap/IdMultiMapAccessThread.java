@@ -11,13 +11,8 @@ public class IdMultiMapAccessThread extends MultiMapAccessThread {
         boolean shouldRun = (map != null && id != null);
         l.unlock();
         if(shouldRun) {
-            map.lock(id);
-            try {
-                for (long i = 0; i < 10; i++) {
-                    map.put(id, i);
-                }
-            } finally {
-                map.unlock(id);
+            for (long i = 0; i < 10; i++) {
+                map.put(id, i);
             }
         }
     }

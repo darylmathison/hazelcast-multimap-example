@@ -9,7 +9,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Created by Daryl on 4/19/2015.
+ * Abstract class to access MultiMap.
  */
 public abstract class MultiMapAccessThread implements Serializable, Runnable, HazelcastInstanceAware {
     protected com.hazelcast.core.HazelcastInstance instance;

@@ -18,6 +18,11 @@
         </developer>
     </developers>
 
+    <scm>
+        <connection>scm:git:https://github.com/darylmathison/hazelcast-multimap-example.git</connection>
+        <url>https://github.com/darylmathison/hazelcast-multimap-example</url>
+    </scm>
+
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -68,7 +73,6 @@
                             <report>dependencies</report>
                             <report>index</report>
                             <report>project-team</report>
-                            <report>issue-tracking</report>
                             <report>scm</report>
                         </reports>
                     </reportSet>

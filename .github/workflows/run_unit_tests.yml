@@ -1,0 +1,38 @@
+name: Unit tests
+
+on:
+  pull_request:
+    branches:
+      - master
+      - 'release/*'
+  push:
+    branches:
+      - 'feature/*'
+      - 'release/*'
+  workflow_dispatch:
+
+env:
+  JAVA_VERSION: 17
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@main
+    - name: Set up Java ${{ env.JAVA_VERSION }}
+      uses: actions/setup-java@v4.2.1
+      with:
+        distribution: 'adopt'
+        java-version: ${{ env.JAVA_VERSION }}
+        server-id: github
+        settings-path: ${{ github.workspace }}
+    - name: Cache maven packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.m2
+        key: maven-java-${{ JAVA_VERSION }}-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          maven-java-
+    - name: Run unit tests
+      run: mvn test --file pom.xml

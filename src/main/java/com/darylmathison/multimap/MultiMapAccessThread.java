@@ -2,7 +2,7 @@ package com.darylmathison.multimap;
 
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.HazelcastInstanceAware;
-import com.hazelcast.core.MultiMap;
+import com.hazelcast.multimap.MultiMap;
 
 import java.io.Serializable;
 import java.util.concurrent.locks.Lock;
